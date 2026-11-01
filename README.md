@@ -1,2 +1,2 @@
 # datapawa-privacy-policy
-Privacy Policy for DataPawa - Smart Guide
+Official Privacy Policy for DataPawa - Smart Guide.
