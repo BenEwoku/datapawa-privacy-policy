@@ -5,36 +5,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataPawa Privacy Policy</title>
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #005B4F; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { color: #005B4F; border-bottom: 2px solid #005B4F; padding-bottom: 8px; }
+        h2 { color: #005B4F; margin-top: 32px; }
+        h3 { color: #444; margin-top: 20px; font-size: 1.05em; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #f5f5f5; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+        .last-updated { color: #666; font-size: 0.9em; }
+        .contact { background: #f9f9f9; padding: 16px; border-left: 4px solid #005B4F; margin: 16px 0; }
     </style>
 </head>
 <body>
     <h1>DataPawa Privacy Policy</h1>
-    <p><strong>Last Updated:</strong> November 1, 2026</p>
+    <p class="last-updated"><strong>Last Updated:</strong> November 5, 2026</p>
 
     <h2>1. Introduction</h2>
-    <p>DataPawa ("we", "our", "us") is a mobile resource management application. We are committed to protecting your privacy. This policy explains what data we access and how it is handled.</p>
+    <p>
+        DataPawa ("we", "our", "us") is a mobile resource management application operated by
+        <strong>Bodmas DataSoft Center</strong> (URSB-registered business in Uganda). We help
+        Ugandan users track mobile data, airtime, SMS, and other resource balances across MTN and
+        Airtel networks. This policy explains what data we collect, how we use it, and your rights.
+    </p>
 
-    <h2>2. Data We Access</h2>
-    <p><strong>SMS Messages:</strong> To provide automatic bundle tracking, DataPawa reads SMS messages from your telecom provider (MTN, Airtel, Lycamobile). We only read messages from verified telecom senders and only from the current day. This data is processed locally on your device and is never uploaded to a server.</p>
-    <p><strong>Phone State:</strong> We access your phone state to detect your network operator (MTN, Airtel, etc.) for automatic SIM setup. We do not access your call history or contacts.</p>
-    <p><strong>Usage Statistics:</strong> If you grant permission, DataPawa accesses Android's NetworkStatsManager to show you your data usage. This data is processed locally and never leaves your device.</p>
-    <p><strong>Biometric Data:</strong> If you enable app lock, your fingerprint or face data is processed by Android's secure hardware. DataPawa never stores or transmits your biometric data.</p>
+    <h2>2. Data We Collect</h2>
 
-    <h2>3. Data Storage</h2>
-    <p>All your bundle records, SIM profiles, and expenditure data are stored locally on your device in an encrypted database (AES-256 via SQLCipher). The encryption key is stored in your device's hardware-backed Android Keystore. We do not back up your data to Google Drive or any cloud service. If you uninstall the app, your data is permanently deleted.</p>
+    <h3>2.1 Data Stored Locally On Your Device</h3>
+    <p>The following data is stored only on your phone, in an AES-256 encrypted database (SQLCipher):</p>
+    <ul>
+        <li><strong>SIM profiles:</strong> The names you give your SIMs (e.g., "Work MTN", "Home Airtel")</li>
+        <li><strong>Bundle records:</strong> Bundle names, quantities, prices, and expiry dates you enter manually</li>
+        <li><strong>Notification history:</strong> Expiry reminders and app notifications</li>
+    </ul>
+    <p>
+        This data is encrypted with a key stored in your device's hardware-backed Android Keystore.
+        <strong>It is never backed up to Google Drive or any cloud service.</strong> Uninstalling the
+        app permanently deletes all local data.
+    </p>
 
-    <h2>4. Data Sharing</h2>
-    <p>We do not sell, trade, or rent your personal data to third parties. We do not share your SMS content, usage statistics, or spending data with anyone.</p>
+    <h3>2.2 Data Sent To Our Backend Server</h3>
+    <p>When you make a purchase through the app (buying data, airtime, or other resources), we send the following to our secure backend server:</p>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>Your phone number (MSISDN)</td>
+            <td>To identify which account the purchase belongs to</td>
+        </tr>
+        <tr>
+            <td>Your order ID (a unique UUID)</td>
+            <td>To prevent duplicate charges if the network is unstable</td>
+        </tr>
+        <tr>
+            <td>Purchase details (bundle, operator, amount)</td>
+            <td>To process your purchase with MTN or Airtel</td>
+        </tr>
+        <tr>
+            <td>Your Firebase Cloud Messaging (FCM) token</td>
+            <td>To send you purchase confirmations and expiry reminders</td>
+        </tr>
+        <tr>
+            <td>Transaction status</td>
+            <td>To show you your purchase history in the app</td>
+        </tr>
+    </table>
 
-    <h2>5. Third-Party Services</h2>
-    <p>DataPawa does not use any third-party analytics, advertising, or tracking services.</p>
+    <h3>2.3 Data We Do NOT Collect</h3>
+    <p>DataPawa does <strong>not</strong> access, collect, or transmit:</p>
+    <ul>
+        <li><strong>SMS messages</strong> — SMS reading was removed from the app. We do not request SMS permissions.</li>
+        <li><strong>Call logs</strong> — Call log access was removed. We do not request call log permissions.</li>
+        <li><strong>Contacts or calendar</strong> — Not accessed.</li>
+        <li><strong>Precise GPS location</strong> — Not accessed.</li>
+        <li><strong>Camera or microphone</strong> — Not accessed.</li>
+        <li><strong>Bank account or card details</strong> — Payments are handled by MTN and Airtel; we never see your payment credentials.</li>
+    </ul>
 
-    <h2>6. Your Rights</h2>
-    <p>You can revoke any permission (SMS, Phone State, Usage Access, Biometrics) at any time through your phone's Settings. Revoking permissions may disable certain features.</p>
+    <h3>2.4 Permissions We Request</h3>
+    <table>
+        <tr>
+            <th>Permission</th>
+            <th>What It's For</th>
+            <th>Where It's Processed</th>
+        </tr>
+        <tr>
+            <td><code>READ_PHONE_STATE</code></td>
+            <td>Detecting your SIM operator (MTN, Airtel) for automatic SIM setup</td>
+            <td>Local only</td>
+        </tr>
+        <tr>
+            <td><code>POST_NOTIFICATIONS</code></td>
+            <td>Sending you expiry alerts and purchase confirmations</td>
+            <td>Local (via Firebase Cloud Messaging)</td>
+        </tr>
+        <tr>
+            <td><code>PACKAGE_USAGE_STATS</code></td>
+            <td>Showing you how much mobile data you've used today</td>
+            <td>Local only</td>
+        </tr>
+        <tr>
+            <td><code>INTERNET</code></td>
+            <td>Communicating with our backend and with Firebase</td>
+            <td>Network</td>
+        </tr>
+    </table>
 
-    <h2>7. Contact Us</h2>
-    <p>If you have questions about this policy, contact us at: <strong>bewoku14@outlook.com</strong></p>
+    <h3>2.5 Biometric Data</h3>
+    <p>
+        If you enable app lock, your fingerprint or face data is processed entirely by
+        Android's secure hardware. <strong>DataPawa never stores or transmits your biometric data.</strong>
+    </p>
+
+    <h2>3. How We Use Your Data</h2>
+    <ul>
+        <li><strong>To process purchases:</strong> Your purchase request is sent to MTN or Airtel through their APIs</li>
+        <li><strong>To track your resource usage:</strong> Purchase history is stored in our backend so you can view it in the app</li>
+        <li><strong>To send reminders:</strong> We notify you before bundles expire so you don't lose value</li>
+        <li><strong>To prevent fraud:</strong> Idempotency keys prevent duplicate charges</li>
+    </ul>
+
+    <h2>4. Data Storage and Retention</h2>
+
+    <h3>4.1 Local Data</h3>
+    <p>Stored on your device until you uninstall the app. Uninstalling deletes it permanently.</p>
+
+    <h3>4.2 Server Data</h3>
+    <p>
+        Purchase transaction records are stored in our secure database (hosted on Neon, a serverless
+        PostgreSQL provider) for as long as necessary to provide the service. Records are retained for
+        a minimum of <strong>7 years</strong> to comply with Uganda's financial record-keeping regulations.
+    </p>
+    <p>
+        Your FCM token is stored only while needed to deliver notifications. It is removed when you
+        uninstall the app or after 90 days of inactivity.
+    </p>
+
+    <h2>5. Data Sharing</h2>
+    <p>We do <strong>not</strong> sell, trade, or rent your personal data. We share data only with:</p>
+    <ul>
+        <li><strong>MTN Uganda and Airtel Uganda</strong> — when you make a purchase, we transmit the necessary data to complete the transaction with your chosen operator</li>
+        <li><strong>Neon (database hosting)</strong> — for secure storage of transaction records</li>
+        <li><strong>Google Firebase</strong> — for push notification delivery</li>
+        <li><strong>Law enforcement</strong> — only when legally required by Ugandan law</li>
+    </ul>
+    <p>
+        All third parties are contractually obligated to protect your data and use it only for the
+        specified service.
+    </p>
+
+    <h2>6. Third-Party Services</h2>
+    <p>DataPawa uses the following third-party services:</p>
+    <ul>
+        <li><strong>Firebase Cloud Messaging</strong> (Google) — for push notifications</li>
+        <li><strong>Neon</strong> — for secure database hosting</li>
+        <li><strong>MTN Business API</strong> and <strong>Airtel Developer API</strong> — for purchase processing (once integrated)</li>
+    </ul>
+    <p>We do <strong>not</strong> use any third-party analytics, advertising, or tracking services.</p>
+
+    <h2>7. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+        <li><strong>Access your data:</strong> All purchase history is visible in the app's dashboard</li>
+        <li><strong>Delete your data:</strong> Uninstall the app to erase local data. To request server-side deletion, email us (see Section 9)</li>
+        <li><strong>Revoke permissions:</strong> Change any permission at any time through Android Settings</li>
+        <li><strong>Disable notifications:</strong> Turn off expiry alerts in the app's Settings screen</li>
+        <li><strong>Lodge a complaint:</strong> Contact Uganda's Personal Data Protection Office if you believe your data has been mishandled</li>
+    </ul>
+
+    <h2>8. Children's Privacy</h2>
+    <p>
+        DataPawa is not intended for children under 18. We do not knowingly collect data from
+        minors. If you believe a minor has provided us with data, contact us to delete it.
+    </p>
+
+    <h2>9. Contact Us</h2>
+    <div class="contact">
+        <p>
+            <strong>Bodmas DataSoft Center</strong><br>
+            Uganda (URSB-registered)<br>
+            Email: <strong>bewoku14@outlook.com</strong><br>
+            (Support email: <code>support@genesininnovations.com</code> — coming soon)
+        </p>
+    </div>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>
+        We may update this policy as the app evolves. When we do, we'll update the "Last Updated"
+        date at the top and notify you through the app's notification system. Continued use of
+        DataPawa after changes constitutes acceptance of the updated policy.
+    </p>
+
+    <h2>11. Governing Law</h2>
+    <p>
+        This policy is governed by the laws of the Republic of Uganda, including the Data Protection
+        and Privacy Act, 2019.
+    </p>
+
 </body>
 </html>
